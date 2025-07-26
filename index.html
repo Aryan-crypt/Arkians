@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Arkians API Service</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.24.1/themes/prism-tomorrow.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="logo">Arkians</div>
+            <ul>
+                <li><a href="#home">Home</a></li>
+                <li><a href="#models">Models</a></li>
+                <li><a href="#documentation">Documentation</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section id="home" class="hero">
+            <h1>Welcome to Arkians API Service</h1>
+            <p>Powerful AI Models at Your Fingertips</p>
+            <a href="https://t.me/jarvis_proobprosty_bot" class="cta-button" target="_blank">Get Your API Key</a>
+        </section>
+
+        <section id="models" class="models">
+            <h2>Available Models</h2>
+            <div class="model-card">
+                <h3>OpenAI GPT-3.5</h3>
+                <p>Advanced language model capable of understanding and generating human-like text</p>
+                <div class="code-examples">
+                    <div class="code-block">
+                        <h4>Python Example</h4>
+                        <pre><code class="language-python">import requests
+
+url = "https://prooby1.pythonanywhere.com/chat"
+api_key = "your_api_key_here"  # Replace with your API key
+payload = {
+    "messages": [
+        {"role": "system", "content": "You are a helpful assistant."},
+        {"role": "user", "content": "Hello! How are you today?"}
+    ],
+    "temperature": 0.7,
+    "stream": False,
+    "private": False
+}
+headers = {
+    "Content-Type": "application/json",
+    "x-api-key": api_key
+}
+response = requests.post(url, headers=headers, json=payload)
+if response.status_code == 200:
+    try:
+        reply = response.json()['choices'][0]['message']['content']
+        print("AI:", reply)
+    except Exception as e:
+        print("Error parsing response:", e)
+else:
+    print("Request failed with status code:", response.status_code)</code></pre>
+                    </div>
+                    <div class="code-block">
+                        <h4>cURL Example</h4>
+                        <pre><code class="language-bash">curl -X POST https://prooby1.pythonanywhere.com/chat \
+  -H "Content-Type: application/json" \
+  -H "x-api-key: your_api_key_here" \
+  -d '{
+    "messages": [
+      {"role": "system", "content": "You are a helpful assistant."},
+      {"role": "user", "content": "Hello! How are you today?"}
+    ],
+    "temperature": 0.7,
+    "stream": false,
+    "private": false
+}'</code></pre>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2025 Arkians. All rights reserved.</p>
+    </footer>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.24.1/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.24.1/components/prism-python.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.24.1/components/prism-bash.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
